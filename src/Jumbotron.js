@@ -6,7 +6,7 @@ function Jumbotron(prop) {
          <div className="jumbotron jumbotron-fluid">
             <div className="container">
 
-            <h1 className="display-4">{prop.title}</h1>
+            <h1 className="display-4 mb-4">{prop.title}</h1>
             <p className="lead">{prop.description}</p>
             {prop.children}
             </div>

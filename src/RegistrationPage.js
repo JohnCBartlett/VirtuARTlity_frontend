@@ -21,12 +21,6 @@ const RegistrationPage = () => {
     let passwordField;
 
     const registerUser = () => {
-        // console.log(
-        //     firstNameField.value,
-        //     lastNameField.value,
-        //     emailField.value,
-        //     passwordField.value
-        // )
 
         let errors = 0;
         let messages = [];
@@ -77,6 +71,10 @@ const RegistrationPage = () => {
                 firstName: firstNameField.value,
                 lastName: lastNameField.value,
                 email: emailField.value,
+                mPhone: mPhoneField,
+                aPhone: aPhoneField,
+                country: countryField,
+                city: cityField,
                 password: passwordField.value
             }),
             headers: {
@@ -120,64 +118,123 @@ const RegistrationPage = () => {
         return(
             <div>
                 <NavBar />
-                <h1>Registration</h1>
+                <h3>Registration Form</h3>
 
-                <div className="container">
-                    <div className="row">
-                        <div className="col-sm" 
-                        style={{maxWidth: '400px', margin: '0 auto'}}>
-                            <div>
-                                <div className="form-group">
-                                    <label>
-                                        First Name
-                                    </label>
+                <div className="container-fluid">
+                    <div className="form-row"><br/><br/></div>
+                    <div className="form-row justify-content-md-center">
+                        <div class="col-md-auto"><h3>Registration Form</h3><br/></div>
+                    </div>
+                    <div className="form-row justify-content-start">
+                        <div className="col-2"></div>
+                        <div className="col-md-4" style={{maxWidth: '400px', margin: '0 auto'}}>
 
+                                <div className="md-form form-group">
+                                    <label>First Name</label>
                                     <input 
                                     ref={(comp)=>firstNameField = comp}
                                     type="text" 
                                     className="form-control" 
                                     aria-describedby="firstName"/>
                                 </div>
-
-                                <div className="form-group">
-                                    <label>
-                                        Last Name
-                                    </label>
-
+                        </div>
+                        <div className="col-md-4" style={{maxWidth: '400px', margin: '0 auto'}}>
+                                <div className="md-form form-group">
+                                    <label>Last Name</label>
                                     <input 
                                     ref={(comp)=>lastNameField = comp}
-                                    type="text" 
-                                    className="form-control" 
+                                    type="text" className="form-control" 
                                     aria-describedby="lastName"/>
                                 </div>
+                        </div>
+                        <div className="col-2"></div>
+                    </div>
 
-                                <div className="form-group">
-                                    <label htmlFor="exampleInputEmail1">
-                                        Email address
-                                    </label>
+                    <div className="form-row justify-content-start">
+                    <div className="col-2"></div>
+                        <div className="col-md-4" style={{maxWidth: '400px', margin: '0 auto'}}>
 
+                                <div className="md-form form-group">
+                                    <label htmlFor="exampleInputEmail1">Email address</label>
                                     <input 
                                     ref={(comp)=>emailField = comp}
-                                    type="email" 
-                                    className="form-control" 
+                                    type="email" className="form-control" 
                                     id="exampleInputEmail1" 
                                     aria-describedby="emailHelp"/>
 
                                     <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
                                 </div>
-
-                                <div className="form-group">
-                                    <label>
-                                        Password
-                                    </label>
-
+                        </div>
+                        <div className="col-md-4" style={{maxWidth: '400px', margin: '0 auto'}}>
+                                <div className="md-form form-group">
+                                    <label>Password</label>
                                     <input 
                                     ref={(comp)=>passwordField = comp}
-                                    type="password" 
-                                    className="form-control" 
+                                    type="password" className="form-control" 
                                     aria-describedby="password"/>
                                 </div>
+                        </div>
+                        <div className="col-2"></div>
+                    </div>
 
+                    <div className="form-row justify-content-md-center">
+                        <div class="col-md-auto"><h3>Registration Form</h3><br/></div>
+                    </div>
+                    <div className="form-row justify-content-start">
+                        <div className="col-2"></div>
+                        <div className="col-md-4" style={{maxWidth: '400px', margin: '0 auto'}}>
+
+                                <div className="md-form form-group">
+                                    <label>Mobile Number</label>
+                                    <input 
+                                    ref={(comp)=>mPhoneField = comp}
+                                    type="text" 
+                                    className="form-control" 
+                                    aria-describedby="mPhone"/>
+                                </div>
+                        </div>
+                        <div className="col-md-4" style={{maxWidth: '400px', margin: '0 auto'}}>
+                                <div className="md-form form-group">
+                                    <label>Alternate Phone Number</label>
+                                    <input 
+                                    ref={(comp)=>aPhoneField = comp}
+                                    type="text" className="form-control" 
+                                    aria-describedby="aPhone"/>
+                                </div>
+                        </div>
+                        <div className="col-2"></div>
+                    </div>
+
+                    <div className="form-row justify-content-md-center">
+                        <div class="col-md-auto"><h3>Registration Form</h3><br/></div>
+                    </div>
+                    <div className="form-row justify-content-start">
+                        <div className="col-2"></div>
+                        <div className="col-md-4" style={{maxWidth: '400px', margin: '0 auto'}}>
+
+                                <div className="md-form form-group">
+                                    <label>Country</label>
+                                    <input 
+                                    ref={(comp)=>countryField = comp}
+                                    type="text" 
+                                    className="form-control" 
+                                    aria-describedby="country"/>
+                                </div>
+                        </div>
+                        <div className="col-md-4" style={{maxWidth: '400px', margin: '0 auto'}}>
+                                <div className="md-form form-group">
+                                    <label>City</label>
+                                    <input 
+                                    ref={(comp)=>cityField = comp}
+                                    type="text" className="form-control" 
+                                    aria-describedby="city"/>
+                                </div>
+                        </div>
+                        <div className="col-2"></div>
+                    </div>
+
+                    <div className="form-row"><br/><br/></div>
+                    <div className="form-row justify-content-md-center">
                                 <button
                                 onClick={registerUser}
                                 type="button"
@@ -204,10 +261,9 @@ const RegistrationPage = () => {
                                         }
                                     </div>
                                 }
-                        </div>
                     </div>
+
                 </div>
-              </div>
             </div>
         )
     }
