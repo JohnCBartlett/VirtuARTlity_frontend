@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React from 'react';
 import Jumbotron from './Jumbotron.js';
 import NavBar from './NavBar.js';
 import Testimonials from './Testimonials.js';

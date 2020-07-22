@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Jumbotron from './Jumbotron.js';
+import AppContext from './AppContext';
 import NavBar from './NavBar.js';
 import Card from './Card.js';
 
 const GalleryPage = () => {
 
-//    const [globalState, setGlobalState] = useContext(AppContext);
+    const [globalState, setGlobalState] = useContext(AppContext);
     const [state, setState] = useState({ products: []})
       
         useEffect(
@@ -38,13 +39,13 @@ const GalleryPage = () => {
         <NavBar />
 
         <Jumbotron 
-          title="Featured Artists" 
-          description="Check out these local and regional artists......"
+          title="Welcome to our Gallery" 
+          description="Please scroll through the exhibition......"
         >
 
         <div className="row">
           {
-//            globalState.loggedIn === true &&
+            globalState.loggedIn === true &&
             state.products.map(
               (product)=>
                 <div className="col-lg-4 col-sm-6">
@@ -59,6 +60,19 @@ const GalleryPage = () => {
             )
           }
 
+          {
+            globalState.loggedIn === false &&
+            state.products.map(
+                (product)=>
+                  <div className="col-lg-4 col-sm-6">
+                    <Card
+                      title={product.title}
+                      description={product.description}
+                      image={product.image}
+                    />
+                  </div>
+            )
+          }
 
           </div>
         </Jumbotron>
@@ -68,10 +82,3 @@ const GalleryPage = () => {
 }
 
 export default GalleryPage;
-//
-//          {
-//            globalState.loggedIn === false &&
-//            <div className="col-lg-4 col-sm-6">
-//              <p>Please login to see the exclusive products.</p>
-//            </div>
-//          }

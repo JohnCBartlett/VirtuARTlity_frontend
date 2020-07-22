@@ -15,7 +15,7 @@ const CallToAction = () => {
 
     const registerEmail = () => {
         //console.log(inputField.value)
-        fetch(`${process.env.REACT_APP_API_URL}emails/register`, 
+        fetch(`${process.env.REACT_APP_API_URL}newsletter/register`, 
             {
                 method: 'POST',
                 body: JSON.stringify({email: inputField.value}),
@@ -71,18 +71,16 @@ const CallToAction = () => {
                                     onClick={registerEmail}>
                                     Sign Up!
                                 </button>
-                                {
-                                    state.registered &&
-                                    <div className="alert alert-success" role="alert">
-                                    Congratulations! You are successfully registered.
-                                    </div>
-                                }
                             </div>
 
                         </div>
+                        {
+                            state.registered &&
+                            <div className="alert alert-success" role="alert">
+                            Congratulations! You are successfully registered.
+                            </div>
+                        }
                       </form>
-
-
                     </div>
                   </div>
                 </div>

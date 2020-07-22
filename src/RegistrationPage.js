@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Redirect } from 'react-router-dom';
 import { validEmail, validPassword } from './Utils'; 
 import NavBar from './NavBar.js';
+import AppContext from './AppContext';
 
 const RegistrationPage = () => {
+
+    // Connected to globalState
+    const [globalState, setGlobalState] = useContext(AppContext);
 
     const [state, setState] = useState(
         {
@@ -23,11 +27,6 @@ const RegistrationPage = () => {
     let aPhoneField;
     let countryField;
     let cityField;
-
-    let accountType;
-    let interests;
-    let avatar;
-
 
     const registerUser = () => {
 
@@ -168,6 +167,7 @@ const RegistrationPage = () => {
                                     <input 
                                     ref={(comp)=>emailField = comp}
                                     type="email" className="form-control" 
+                                    defaultValue={globalState.email}
                                     id="exampleInputEmail1" 
                                     aria-describedby="emailHelp"/>
 

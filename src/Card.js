@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import AppContext from './AppContext';
+
 
 const Card = (prop) => {
+
+  const [globalState, setGlobalState] = useContext(AppContext);
 
     let cardTitle;
   const makePurchase = () => {
@@ -11,6 +15,10 @@ const Card = (prop) => {
 
 
     return(
+      <div>
+
+      {
+        globalState.loggedIn === true &&
         <div className="card" style={{width: "18rem"}}>
           <img 
           src={prop.image}
@@ -28,9 +36,27 @@ const Card = (prop) => {
                {prop.buttonLabel}
                </a>
                
+          </div>
         </div>
-        </div>
+      }
 
+      {
+        globalState.loggedIn === false &&
+        <div className="card" style={{width: "18rem"}}>
+          <img 
+          src={prop.image}
+          className="card-img-top"
+          alt={prop.title}
+          />
+
+          <div className="card-body">
+            <h5 ref={ (comp)=> cardTitle = comp}
+            className="card-title">{prop.title}</h5>
+            <p className="card-text">{prop.description}</p>
+          </div>
+        </div>
+      }
+      </div>
     );
 }
 
