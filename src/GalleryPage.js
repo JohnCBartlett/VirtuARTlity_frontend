@@ -1,17 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Jumbotron from './Jumbotron.js';
 import NavBar from './NavBar.js';
 import Card from './Card.js';
 
 const GalleryPage = () => {
 
-        const [state, setState] = useState({ products: []})
+//    const [globalState, setGlobalState] = useContext(AppContext);
+    const [state, setState] = useState({ products: []})
       
         useEffect(
           () => {
             // only fetch products if and when the user logs in
 //            if(globalState.loggedIn === true) {
-              fetch(`${process.env.REACT_APP_API_URL}8080/products`)
+              fetch(`${process.env.REACT_APP_API_URL}products`)
               .then(
                 (result)=>result.json()
               )
@@ -28,6 +29,7 @@ const GalleryPage = () => {
               );
 //            }
           },
+//          [ globalState.loggedIn ]
         )
       
     return (
@@ -42,6 +44,7 @@ const GalleryPage = () => {
 
         <div className="row">
           {
+//            globalState.loggedIn === true &&
             state.products.map(
               (product)=>
                 <div className="col-lg-4 col-sm-6">
@@ -56,6 +59,7 @@ const GalleryPage = () => {
             )
           }
 
+
           </div>
         </Jumbotron>
 
@@ -64,3 +68,10 @@ const GalleryPage = () => {
 }
 
 export default GalleryPage;
+//
+//          {
+//            globalState.loggedIn === false &&
+//            <div className="col-lg-4 col-sm-6">
+//              <p>Please login to see the exclusive products.</p>
+//            </div>
+//          }

@@ -19,6 +19,11 @@ const RegistrationPage = () => {
     let lastNameField;
     let emailField;
     let passwordField;
+    let mPhoneField;
+    let aPhoneField;
+    let countryField;
+    let cityField;
+
 
     const registerUser = () => {
 
