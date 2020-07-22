@@ -24,6 +24,10 @@ const RegistrationPage = () => {
     let countryField;
     let cityField;
 
+    let accountType;
+    let interests;
+    let avatar;
+
 
     const registerUser = () => {
 
@@ -76,10 +80,10 @@ const RegistrationPage = () => {
                 firstName: firstNameField.value,
                 lastName: lastNameField.value,
                 email: emailField.value,
-                mPhone: mPhoneField,
-                aPhone: aPhoneField,
-                country: countryField,
-                city: cityField,
+                mPhone: mPhoneField.value,
+                aPhone: aPhoneField.value,
+                country: countryField.value,
+                city: cityField.value,
                 password: passwordField.value
             }),
             headers: {
@@ -92,7 +96,7 @@ const RegistrationPage = () => {
         .then(
             (json)=> {
                 const { message } = json;
-                if(message === "User has been saved") {
+                if(message === "User created") {
                     //
                     setState(
                         {
@@ -183,7 +187,6 @@ const RegistrationPage = () => {
                     </div>
 
                     <div className="form-row justify-content-md-center">
-                        <div class="col-md-auto"><h3>Registration Form</h3><br/></div>
                     </div>
                     <div className="form-row justify-content-start">
                         <div className="col-2"></div>
@@ -211,7 +214,6 @@ const RegistrationPage = () => {
                     </div>
 
                     <div className="form-row justify-content-md-center">
-                        <div class="col-md-auto"><h3>Registration Form</h3><br/></div>
                     </div>
                     <div className="form-row justify-content-start">
                         <div className="col-2"></div>
@@ -251,7 +253,7 @@ const RegistrationPage = () => {
                                  state.loading && 
                                  <div className="loader">
                                     <svg className="circular" viewBox="25 25 50 50">
-                                        <circle className="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                                        <circle className="path" cx="50" cy="50" r="20" fill="none" strokeWidth="2" strokeMiterlimit="10"/>
                                     </svg>
                                 </div>
                                 }
