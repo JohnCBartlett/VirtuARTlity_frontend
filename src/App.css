@@ -93,6 +93,10 @@ header.masthead h1 {
   }
 }
 
+.settingsIcon {
+  font-size: 30px;
+}
+
 .features-icons{padding-top:1rem;padding-bottom:0rem}
 
 .features-icons .features-icons-item{max-width:20rem}

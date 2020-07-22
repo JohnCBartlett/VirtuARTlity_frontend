@@ -9,6 +9,7 @@ import WhatWeDoPage from './WhatWeDoPage';
 import WhyWeDoItPage from './WhyWeDoItPage';
 import SettingsPage from './SettingsPage';
 import GalleryPage from './GalleryPage';
+import AdminPage from './AdminPage';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -51,7 +52,8 @@ const App = () => {
           <Route path="/overview/whyWeDoIt" exact={true} component={WhyWeDoItPage}/>
           <Route path="/gallery" exact={true} component={GalleryPage}/>
           <Route path="/register" exact={true} component={RegistrationPage}/>
-          <PrivateRoute path="/settings" exact={true} component={SettingsPage}/>
+          <Route path="/settings" exact={true} component={SettingsPage}/>
+          <PrivateRoute path="/admin" exact={true} component={AdminPage}/>
         </Switch>
       </BrowserRouter>
     </AppContext.Provider>

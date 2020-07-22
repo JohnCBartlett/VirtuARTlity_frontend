@@ -61,9 +61,17 @@ const NavBar = () => {
 
               </Nav>
               <Nav>
+                <div>
+                {
+                  globalState.loggedIn === true &&
+                  <Nav.Link className="settingsIcon fa fa-user-o" href="/settings"></Nav.Link>
+                }
+                </div>
+
                 <div style={{display: 'flex'}}>
                   {
-                      globalState.loggedIn === false && <Link
+                      globalState.loggedIn === false &&
+                      <Link
                       to="/login"
                       className="btn btn-primary">
                           Log In / Register
@@ -71,10 +79,11 @@ const NavBar = () => {
                   }
                   {
                       globalState.loggedIn === true && 
-                      <button onClick={logOut}
+                        <button onClick={logOut}
                       className="btn btn-danger">
                           Log Out
                       </button>
+
                   }
                 </div>
               </Nav>
